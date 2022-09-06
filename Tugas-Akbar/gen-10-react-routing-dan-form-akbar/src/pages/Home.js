@@ -1,14 +1,24 @@
 import { useState, useEffect } from "react";
+import React from "react";
+import Image from '../assets/makanan.jpg'
+import { Link } from "react-router-dom";
+import '../style/Home.css'
 
-const Home = () => {
-    const [users, setUsers] = useState([]);
-    useState(() => {
-        fetch("https://fakerapi.it/api/v1/products?_quantity=1&_taxes=12&_categories_type=uuid")
-            .then((resp) => resp.json())
-            .then((data) => setUsers(data))
-            .catch(err => console.log(err))
-    })
-    return <h1>Home Page</h1>;
-};
+function Home() {
+    return (
+        <div className="home">
+            <div
+            className="headerContainer"
+            style={{backgroundImage: `url(${Image})`}}>
+                <h1>Warung Cilacap Bercahaya</h1>
+                <p> MAKANAN LEJAAD DAN BERGIJII</p>
+                <Link to="/menu">
+                    <button>ORDER</button>
+                </Link>
+            </div>
+
+        </div>
+    )
+}
 
 export default Home;

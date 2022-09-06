@@ -1,11 +1,11 @@
 import React from "react";
 
-function Login() {
+function NotFound() {
     return (
         <div style={{ textAlign: "center" }}>
-            <h1>Login Page</h1>;
+            <h1>404 PAGE NOT FOUND</h1>;
         </div>
     )
 }
 
-export default Login;
+export default NotFound;
