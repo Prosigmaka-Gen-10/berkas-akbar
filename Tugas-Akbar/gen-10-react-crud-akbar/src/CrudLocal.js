@@ -25,7 +25,7 @@ export default function CrudLocal() {
         price: ''
     }
     const [products, setProducts] = useState([])
-    const [fromInput, setFormInput] = useState({ ...originalForm })
+    const [formInput, setFormInput] = useState({ ...originalForm })
     const [isUpdate, setIsUpdate] = useState(false)
 
     function prepareUpdate(products) {
@@ -34,7 +34,7 @@ export default function CrudLocal() {
     }
 
     function handleInput(event, propertyName) {
-        const currentFormInput = { ...fromInput }
+        const currentFormInput = { ...formInput }
         currentFormInput[propertyName] = event.target.value
         setFormInput(currentFormInput)
     }
@@ -55,7 +55,7 @@ export default function CrudLocal() {
         const timestampNow = new Date().getTime()
 
         const payload = {
-            ...fromInput,
+            ...formInput,
             id: timestampNow
         }
         const currentProducts = [...products]
@@ -66,7 +66,7 @@ export default function CrudLocal() {
     function updateProduct() {
         const currentProducts = [...products]
         const productIndex = currentProducts.findIndex(
-            (product) => product.id === fromInput.id
+            (product) => product.id === formInput.id
 
         )
 

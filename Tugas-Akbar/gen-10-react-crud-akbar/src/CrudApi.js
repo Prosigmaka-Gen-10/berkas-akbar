@@ -10,23 +10,23 @@ export default function CrudApi() {
         harga: ''
     }
 
-    const [food, setFood] = useState([])
+    const [foods, setFoods] = useState([])
     const [formInput, setFormInput] = useState({ ...originalForm })
 
-    async function getListFood() {
+    async function getListFoods() {
         axios.get('http://localhost:3001/food')
             .then((res) => {
-                setFood(res.data)
+                setFoods(res.data)
             })
             .catch(error => {
                 console.log(error)
                 alert('Terjadi Masalah Saat Memproses Data')
             })
         }
-        function tambahFood() {
+        function tambahFoods() {
             axios.post('http://localhost:3001/food', formInput)
             .then(() => {
-                getListFood()
+                getListFoods()
             })
             .catch(error => {
                 console.log(error) 
@@ -34,10 +34,10 @@ export default function CrudApi() {
             })
         }
         
-        function updateFood () {
+        function updateFoods () {
             axios.put('http://localhost:3001/food/' + formInput.id, formInput)
             .then(() => {
-                getListFood()
+                getListFoods()
             })
             .catch(error => {
                 console.log(error) 
@@ -45,10 +45,10 @@ export default function CrudApi() {
             })
         }
     
-        function deleteFood (foodId) {
+        function deleteFoods (foodId) {
             axios.delete('http://localhost:3001/food/' + foodId)
             .then(() => {
-                getListFood()
+                getListFoods()
             })
             .catch(error => {
                 console.log(error) 
@@ -60,11 +60,11 @@ export default function CrudApi() {
             event.preventDefault()
             if( formInput.id) {
     
-                updateFood()
+                updateFoods()
     
             } else {
     
-                tambahFood()
+                tambahFoods()
     
             }
         
@@ -83,7 +83,7 @@ export default function CrudApi() {
         }
         
         useEffect(() => {
-            getListFood()
+            getListFoods()
         }, [])
     
         return<>
@@ -127,9 +127,9 @@ export default function CrudApi() {
             Daftar Makanan :
         </h2>
         <ul>
-            {food.map (food => 
+            {foods.map (food => 
             <li key={food.id}>
-                Nomor Menu : {food.noMenu} | Menu : {food.menu} | Harga : {food.harga}
+                Nomor Menu : {foods.noMenu} | Menu : {foods.menu} | Harga : {foods.harga}
     
                 &nbsp;&nbsp;
                 <button onClick={() => prepareUpdate(food)}>
@@ -137,7 +137,7 @@ export default function CrudApi() {
                 </button>
     
                 &nbsp;&nbsp;
-                <button onClick={() => deleteFood(food.id)}>
+                <button onClick={() => deleteFoods(food.id)}>
                     Delete
                 </button>
             </li>
