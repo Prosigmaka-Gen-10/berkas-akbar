@@ -20,8 +20,8 @@ export default function Price() {
 	}
 
 	return <>
-		This page is Price's Page <br />
-		The price of this phone is Rp. {foodPrice},-
+		Halaman Harga makanan <br />
+		Harga Makanan ini adalah Rp. {foodPrice},-
 		<br />
 		<br />
 		<button onClick={handleChangePrice}>Change Price</button>

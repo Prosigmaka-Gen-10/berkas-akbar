@@ -1,27 +1,33 @@
+import store from "./store"
+import FoodsMenu from "./FoodsMenu"
+import FoodsPrice from "./FoodsPrice"
+import DrinksMenu from "./DrinkSMenu"
+import DrinksPrice from "./DrinksPrice"
+
 export default function App() {
-  function showStore() {
+  function tampilkanStore() {
     console.log(store.getState())
   }
 
   return <>
-    <h1>Ridwan's React-Redux</h1>
-    <button onClick={showStore}>Restaurant</button> 
+    <h1>Latihan React Redux</h1>
+    <button onClick={tampilkanStore}>Restaurant</button> 
 
     <br /><hr /><br />
 
-    <Foods />
+    <FoodsMenu />
 
     <br /><hr /><br />
 
-    <PriceFoods />
+    <FoodsPrice />
 
     <br /><hr /><br />
 
-    <Drinks />
+    <DrinksMenu />
     
     <br /><hr /><br />
 
-    <PriceDrinks />
+    <DrinksPrice />
 
   </>
 }

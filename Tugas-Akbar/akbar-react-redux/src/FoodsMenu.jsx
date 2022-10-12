@@ -1,4 +1,5 @@
-
+import store from "./store"
+import {useSelector} from "react-redux"
 
 export default function MenuMakanan() {
 	const daftarmakanan = useSelector(state => state.foods.menu)
@@ -8,13 +9,13 @@ export default function MenuMakanan() {
 		count = count + 1
 		if (count % 2 !== 0) {
 			store.dispatch({
-				type: 'changeMerk',
-				value: 'OPPO'
+				type: 'changeMenu',
+				value: 'Nasi Rendang'
 			})
 		} else {
 			store.dispatch({
 				type: 'changeMerk',
-				value: 'SAMSUNG'
+				value: 'Sate Ayam'
 			})
 		}
 		

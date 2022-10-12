@@ -1,9 +1,9 @@
 export const initialState = {
-	menu: 'Mie Ayam',
+	menu: 'Sate Ayam',
 	price: "50.000"
 }
 
-export default function phoneReducer(state = initialState, action) {
+export default function foodsReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'changeMenu':
 			return { ...state, menu: action.value }

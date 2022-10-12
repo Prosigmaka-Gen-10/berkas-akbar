@@ -1,20 +1,21 @@
-
+import store from "./store"
+import {useSelector} from "react-redux"
 
 export default function MenuMinuman() {
-	const daftarminuman = useSelector(state => state.minuman.menu)
+	const daftarminuman = useSelector(state => state.drinks.menu)
 	let count = 0
 
 	function handleChangeMenuMinuman() {
 		count = count + 1
 		if (count % 2 !== 0) {
 			store.dispatch({
-				type: 'changeMerkLaptop',
-				value: 'LENOVO'
+				type: 'changeMenuMinuman',
+				value: 'Es Teh'
 			})
 		} else {
 			store.dispatch({
-				type: 'changeMerkLaptop',
-				value: 'THINKPAD'
+				type: 'changeMenuMinuman',
+				value: 'Es Jeruk'
 			})
 		}
 		
@@ -25,6 +26,6 @@ export default function MenuMinuman() {
 		and the brand of this laptop is {daftarminuman}
 		<br />
 		<br />
-		<button onClick={handleChangeMerkLaptop}>Change Merk</button>
+		<button onClick={handleChangeMenuMinuman}>Change Menu</button>
 	</>
 }

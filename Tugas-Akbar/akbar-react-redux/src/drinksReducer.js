@@ -1,5 +1,5 @@
 export const initialStateDrinks = {
-	menu: 'Es Teler',
+	menu: 'Es Jeruk',
 	price: "70.000"
 }
 
